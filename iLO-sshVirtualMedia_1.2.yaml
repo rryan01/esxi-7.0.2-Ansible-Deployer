@@ -1,0 +1,37 @@
+
+# Developed by Robert Ryan, North America Technology and Solution Center HPE
+# This script is intended for testing/demo perposes and includes no warrenty or entitlements
+---
+- name: kickoff scripted vCenterDeployment Qualys
+  hosts: gltest
+  remote_user: hpadmin
+  gather_facts: no
+  tasks:
+   - name: set virtual media
+     raw: vm cdrom insert http://10.10.124.50/esxi-ks-7.0.2.iso
+
+   - name: list first debug message
+     debug:
+        msg: "The virtual ESXi ISO image is now mounted and updated"
+
+   - name: set virtual media status update
+     raw: vm cdrom set connect
+
+   - name: Pause inbetween mounting and reboot server
+     pause:
+       seconds: 2
+       
+   - name: list second debug message
+     debug:
+       msg: "The server will now power off and then power on to the new boot ISO image"
+
+   - name: power off server
+     raw: power off
+     
+   - name: Pause inbetween mounting and reboot server
+     pause:
+       seconds: 2
+
+   - name: power on server
+     raw: power on
+
