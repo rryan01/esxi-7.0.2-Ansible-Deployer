@@ -5,7 +5,7 @@ To run this playbook please edit the host file and put your iLO targets. The SSH
 
 1. Edit Host file with target iLOs
 2. Confirm you can pull the kickstarted ISO from a web server
-3. run this command from the directory where you pull down the host file and the main playbook (ansible-playbook -i ilohosts iLO-sshVirtualMedia_1.2.yaml --ask-pass)
+3. Run this command from the directory where you pull down the host file and the main playbook (ansible-playbook -i ilohosts iLO-sshVirtualMedia_1.2.yaml --ask-pass)
 4. When prompted enter the iLO password.
 
 ENJOY! , Robert Ryan
